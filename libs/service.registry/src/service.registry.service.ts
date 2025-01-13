@@ -7,7 +7,7 @@ export class ServiceRegistry {
   constructor(private readonly redisService: RedisService) {}
 
   private get redisClient() {
-    return this.redisService.getClient();
+    return this.redisService.getOrThrow();
   }
 
   public async registerService(serviceName: string, host: string, port: number) {
